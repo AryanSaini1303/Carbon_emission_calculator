@@ -1,0 +1,418 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/19df3034e8.js" crossorigin="anonymous"></script>   
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Benne&family=Courier+Prime&family=Lora:wght@600&family=Poltawski+Nowy:wght@500&display=swap" rel="stylesheet">
+        <title>
+            BHARAT Carbon Platform
+        </title>
+    </head>
+    <body>
+        <section class="title" id="sec1">
+            <div class="header">
+                <div><img src="logo.jpg" alt="'LOGO" class="logo"></div>
+                <div>
+                    <nav class="navlink">
+                        <ul class="nav_links">
+                            <li><a href="#sec1">ABOUT</a></li>
+                            <li><a href="#sec2">CALCULATOR</a>
+                            </li><li><a href="#sec3">RESULT</a></li>
+                            <li><a href="#sec4">CONTACT</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <hr class="hr" color="black" size="4">
+            <div class="content">
+                <div><img src="carbon.png" alt="" class="carbon"></div>
+                <div>
+                    <h1>CARBON  FOOTPRINT  CALCULATOR</h1>
+                    <p class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A carbon footprint calculator is a tool that helps individuals, businesses, or organizations estimate the amount of carbon dioxide and other greenhouse gas emissions produced by their activities. These calculators take into account factors such as energy use, transportation, diet, and waste generation.</p>
+                    <p class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There are several online carbon footprint calculators available that can provide estimates for individuals or households. These calculators typically ask for information such as the size of the household, the types of vehicles used, the frequency of air travel, and the types of food consumed. The calculator then generates an estimate of the individual or household's carbon footprint, usually measured in metric tons of carbon dioxide equivalent (CO2e).</p>
+                </div>
+            </div>
+        </section>
+        <section class="calc" id="sec2">
+            <div class="calc head">
+                <div><h2>BHARAT Carbon Footprint Calculator</h2></div>
+                <div>
+                    <div class="card">
+                        
+                        <div class="container">
+                            <div><img src="household.jpg" alt="Avatar" class="image"></div>
+                            <div class="div_button"><button type="button" formaction="#household_calc" class="btn">HOUSEHOLD</button></div>                            
+                        </div>
+                        <div class="container">
+                            <div><img src="lifestyle.jpg" alt="Avatar" class="image"></div>
+                            <div class="div_button"><button type="button" href="#lifestyle_calc" class="btn">Food</button></div>
+                        </div>
+                        <div class="container">
+                            <div><img src="transport.jpg" alt="Avatar" class="image"></div>
+                            <div class="div_button"><button type="button" href="#transport_calc" class="btn">TRANSPORT</button></div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            
+        </section>
+        <section id="carbon_calc">
+            <div class="calculator">
+                <div id="HouseholdCarbonFootprint">
+                    <h1>Household Carbon Emission Calculator</h1>
+                    <form>
+                    <label for="electricity">Average monthly electricity bill (kWh) </label>
+                    <input class="household label" type="number" id="electricity" name="electricity" min="0" required><br>
+                    
+                    <label for="gas">Average monthly gas used (kg) </label>
+                    <input class="household label" type="number" id="gas" name="gas" min="0" required><br>
+                    
+                    <label for="flight">Number of flights per year</label>
+                    <input class="household label" type="number" id="flight" name="flight" min="0" required><br>
+                    </form>
+                    <script>
+                    function calculateHouseholdCarbonFootprint() {
+                        var electricity = document.getElementById("electricity").value;
+                        var gas = document.getElementById("gas").value;
+                        var flight = document.getElementById("flight").value;
+                        var HouseholdCarbonFootprint = (electricity * 0.82*12 + gas * 1.5*12 + flight * 0.22);
+                      drawGraph(HouseholdCarbonFootprint, 0, 0);
+                        document.getElementById("HouseholdCarbonFootprint").innerHTML =  HouseholdCarbonFootprint.toFixed(2) + " kgs of CO2";
+                        return HouseholdCarbonFootprint;
+                    }
+                    </script>
+                </div>
+                <div id="FoodCarbonFootprint">
+                  <h1>Food Carbon Emission Calculator</h1>
+                  <form>
+                    <label for="servings per day">Number of servings per day of non-vegetarian food</label>
+                    <input class="label" type="number" id="servingsPerDayNonVeg" name="servingsPerDayNonVeg" min="0" required><br>                    
+                    <label for="servings per day">Number of servings per day of vegetarian</label>
+                    <input class="label" type="number" id="servingsPerDayVeg" name="servingsPerDayVeg" min="0" required><br>
+                    <label for="servings per day">Number of servings per day of beverages</label>
+                    <input class="label" type="number" id="servingsPerDayBev" name="servingsPerDayBev" min="0" required> <br>
+                  </form>
+                  <script>
+                    function calculateFoodCarbonFootprint() {
+                      var servingsPerDayNonVeg=document.getElementById("servingsPerDayNonVeg").value
+                      var servingsPerDayVeg=document.getElementById("servingsPerDayVeg").value
+                      var servingsPerDayBev=document.getElementById("servingsPerDayBev").value
+                      var FoodCarbonFootprint= (servingsPerDayNonVeg*0.7+servingsPerDayVeg*0.38+servingsPerDayBev*0.003)*365;
+                      drawGraph(0, FoodCarbonFootprint, 0);
+                      document.getElementById("FoodCarbonFootprint").innerHTML =  FoodCarbonFootprint.toFixed(2)+ " kgs of CO2";
+                      return FoodCarbonFootprint;
+                    }
+                    </script>
+                </div>
+                <div id="TransportCarbonFootprint">
+                  <h1>Transport Carbon Emission Calculator</h1>
+                  <form>
+                    <label for="FuelSource">FuelSource</label>
+                    <select class="label dropdownmenu" id="FuelSource" name="FuelSource">
+                      <option value="diesel">Diesel</option>
+                      <option value="petrol">Petrol</option>
+                      <option value="gasoline">Gasoline</option>
+                    </select><br><br> 
+                    <label for="people">Number of people in your family </label>
+                    <input class="Transport label" type="number" id="people" name="people" min="1" required><br>
+                    <label for="amount of fuel">Fuel per day (litres)</label>
+                    <input class="label" type="number" id="amount of fuel" name="amount of fuel" min="1" required> <br><br>
+                  </form>
+                  <script>
+                    function calculateTransportCarbonFootprint() {
+                      var people = document.getElementById("people").value;
+                      var fuelType = document.getElementById("FuelSource").value;
+                      var amount=document.getElementById("amount of fuel").value
+                      var factor = 0;
+                      if (fuelType == "diesel") {
+                        factor = .27;
+                      } else if (fuelType == "petrol") {
+                        factor = .23;}
+                         else if (fuelType == "gasoline") {
+                        factor = .23;
+                      }
+                      var TransportCarbonFootprint= amount*factor*365*people;
+                      drawGraph(0,0,TransportCarbonFootprint);
+                      document.getElementById("TransportCarbonFootprint").innerHTML = TransportCarbonFootprint.toFixed(2)+ " kgs of CO2";
+                      return TransportCarbonFootprint;
+                    }
+                  </script>
+                </div>
+            </div>
+            <h2>Result</h2><br><br>
+            <div class="div">
+                <div class="graph">
+                  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                <script>
+                  let prevVal1 = 0, prevVal2 = 0, prevVal3 = 0;
+                  const drawGraph = (val1, val2, val3) => {
+                    if (val1!==0)
+                      prevVal1 =  val1;
+                    if (val2!==0)
+                      prevVal2 = val2;
+                    if (val3!==0)
+                      prevVal3 = val3;
+                    var para1=prevVal1;
+                    var para2=prevVal2;
+                    var para3=prevVal3;
+                    var xValues = ["Household","Food","Transport"];
+                    var yValues = [para1,para2,para3,0];
+                    var barColors = ["red","green","blue"];
+                    new Chart("myChart", {
+                      type: "bar",
+                      data: {
+                        labels: xValues,
+                        datasets: [{
+                          backgroundColor: barColors,
+                          data: yValues
+                        }]
+                      }
+                    });
+                  }
+                </script>
+                
+                </div>
+                <div>
+                  <div id="finalResult">
+                    <div class="topnav">
+                      <form>
+                        <label for ="state"></label>
+                        <select class="label dropdownmenu" id="state" name="state">
+                          <option value="Andhra Pradesh">Andhra Pradesh</option>
+                          <option value="Arunanchal Pradesh">Arunachal Pradesh</option>
+                          <option value="Assam">Assam</option>
+                          <option value="Bihar">Bihar</option>
+                          <option value="Chhattisgarh">Chhattisgarh</option>
+                          <option value="Goa">Goa</option>
+                          <option value="Gujarat">Gujarat</option>
+                          <option value="Haryana">Haryana</option>
+                          <option value="Himachal Pradesh">Himachal Pradesh</option>
+                          <option value="Karnataka">Karnataka</option>
+                          <option value="Kerala">Kerela</option>
+                          <option value="Madhya Pradesh">Madhya Pradesh</option>
+                          <option value="Maharashtra">Maharashtra</option>
+                          <option value="Manipur">Manipur</option>
+                          <option value="Meghalaya">Meghalaya</option>
+                          <option value="Mizoram">Mizoram</option>
+                          <option value="Nagaland">Nagaland</option>
+                          <option value="Odisha">Odisha</option>
+                          <option value="Punjab">Punjab</option>
+                          <option value="Rajasthan">Rajasthan</option>
+                          <option value="Sikkim">Sikkim</option>
+                          <option value="Tamil Nadu">Tamil Nadu</option>
+                          <option value="Telengana">Telengana</option>
+                          <option value="Tripura">Tripura</option>
+                          <option value="Uttarakhand">Uttarakhand</option>
+                          <option value="Uttar Pradesh">Uttar Pradesh</option>
+                          <option value="West Bengal">West Bengal</option>
+                          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                          <option value="Chandigarh">Chandigarh</option>
+                          <option value="Dadra and Nagar Haveli and Damam & Diu">Dadra and Nagar Haveli and Damam & Diu</option>
+                          <option value="Delhi">Delhi</option>
+                          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                          <option value="Ladakh">Ladakh</option>
+                          <option value="Lakshadweep">Lakshadweep</option>
+                          <option value="Puducherry">Puducherry</option>
+                        </select>
+                        <button type="submit" onclick="statename()" class="button">Submit</button>
+                        <p id="result">
+                        </p>
+                        
+                      </form>
+                      <script> 
+                        function statename(){
+                          var stateName=document.getElementById("state").value;
+                          var numberOfHouseholds=0;
+                        switch(stateName){
+                          case "Andhra Pradesh":
+                          numberOfHouseholds=84580777/3.9;
+                          break;
+              
+                          case "Arunanchal Pradesh":
+                          numberOfHouseholds=1383727/4.8;
+                          break;
+              
+                          case "Assam":
+                          numberOfHouseholds=31205576/4.7;
+                          break;
+              
+                          case "Bihar":
+                          numberOfHouseholds=104099452/5.4;
+                          break;
+              
+                          case "Chhattishgarh":
+                          numberOfHouseholds=25545198/4.8;
+                          break;
+              
+                          case "Goa":
+                          numberOfHouseholds=1458545/4.2;
+                          break;
+              
+                          case "Gujarat":
+                          numberOfHouseholds=60439692/4.7;
+                          break;
+              
+                          case "Haryana":
+                          numberOfHouseholds=25351462/5.3;
+                          break;
+              
+                          case "Himamchal Pradesh":
+                          numberOfHouseholds=6864602/4.6;
+                          break;
+              
+                          case "Jharkhand":
+                          numberOfHouseholds=32988134/5.4;
+                          break;
+              
+                          case "Karnataka":
+                          numberOfHouseholds=61095297/4.6;           
+                          break;
+              
+                          case "Kerala":
+                          numberOfHouseholds=33406061/4.3;
+                          break;
+              
+                          case "Madhya Pradesh":
+                          numberOfHouseholds=72626809/5;
+                          break;
+              
+                          case "Maharashtra":
+                          numberOfHouseholds=112374333/4.7;
+                          break;
+              
+                          case "Manipur":
+                          numberOfHouseholds=2855794/5;
+                          break;
+              
+                          case "Meghalaya":
+                          numberOfHouseholds=2966889/5.1;           
+                          break;
+              
+                          case "Mizoram":
+                          numberOfHouseholds=1097206/5.8;      
+                          break;
+              
+                          case "Nagaland":
+                          numberOfHouseholds=1978502/4.5;       
+                          break;
+              
+                          case "Odisha":
+                          numberOfHouseholds=41974218/4.5;            
+                          break;
+              
+                          case "Punjab":
+                          numberOfHouseholds=27743338/5.2;
+                          break;
+              
+                          case "Rajashthan":
+                          numberOfHouseholds=68548437/5.5
+                          break;
+                          
+                          case "Sikkim":
+                          numberOfHouseholds=610577/4.5;
+                          break;
+              
+                          case "Tamil Nadu":
+                          numberOfHouseholds=72147030/3.5;
+                          break;
+              
+                          case "Telangana":
+                          numberOfHouseholds=35193978/4.8;
+                          break;
+              
+                          case "Tripura":
+                          numberOfHouseholds=3673917/4.3;
+                          break;
+              
+                          case "Uttarakhand":
+                          numberOfHouseholds=10086292/5;
+                          break;
+              
+                          case "Uttar Pradesh":
+                          numberOfHouseholds=199812341/5.7;
+                          break;
+              
+                          case "West Bengal":
+                          numberOfHouseholds=91276115/4.5;
+                          break;
+              
+                          case "Andaman and Nicobar Islands":
+                          numberOfHouseholds=	380581/4;         
+                          break;
+              
+                          case "Chandigarh":
+                          numberOfHouseholds=1055450/4.5;
+                          break;
+              
+                          case "Dadra and Nagar Haveli and Daman & Diu":
+                          numberOfHouseholds=586956/4.25;
+                          break;
+              
+                          case "Delhi":
+                          numberOfHouseholds=16787941/4.9;        
+                          break;
+              
+                          case "Jammu & Kashmir":
+                          numberOfHouseholds=12541302/5.8;
+                          break;
+              
+                          case "Ladakh":
+                          numberOfHouseholds=84580777/4.4;
+                          break;
+              
+                          case "Lakshadweep":
+                          numberOfHouseholds=64473/5.5;
+                          break;
+              
+                          case "Puducherry":
+                          numberOfHouseholds=1247953/4.2;
+                          break;
+                        }
+                        var x=calculateHouseholdCarbonFootprint();
+                        var y=calculateFoodCarbonFootprint();
+                        var z=calculateTransportCarbonFootprint();
+                        var totalCarbonEmission=(x+y+z)*numberOfHouseholds/1000000;
+                        document.getElementById("finalResult").innerHTML= "Total carbon emission in this area per year is: "+totalCarbonEmission+" MT CO2";
+                      }
+                        </script>
+                 </div>
+              
+                  </div>
+                </div>
+            </div>
+        </section>
+        <section id="sec4">
+            <div><h2>Contact</h2></div>
+            <div class="contact">
+                <div>
+                    <form action="mailto:hemangi.rr@gmail.com">
+                        <label for="name" >Name:</label>
+                        <input type="text" id="name" name="name" required>
+                      
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                      
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                      
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                      
+                        <button type="submit" value="Send">Submit</button>
+                      </form>
+                </div>
+                <div>
+                    <form>
+                        <label class="intro" for="name">Contact Us</label>
+                        <br><br>
+                        <div class="info"><label for="email"><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;&nbsp;8200084599</label></div>
+                        <div class="info"><label for="email"><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;&nbsp;hemangi.rr@gmail.com</label></div>
+                      </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

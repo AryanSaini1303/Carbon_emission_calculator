@@ -1,0 +1,233 @@
+body {
+  margin: 0% ;
+  background-image:url("title section image.png") ;  
+}
+.title {
+  background-image:url("title section image.png") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
+  width: 100%;
+  margin: 0%;
+}
+.header {
+  background-image: url("WhatsApp Image 2023-04-22 at 12.50.27.jpg");
+  height:10rem;
+  display:grid;
+  grid-template-columns: auto auto;
+}
+.hr {
+  margin: 0%;
+}
+.logo {
+  padding: 1%;
+  margin: 0%;
+}
+nav {
+  display:block;
+}
+.links {
+  text-align: right;
+  display:inline;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  padding-left: 4%;
+  padding-right: 4%;
+  text-align: right;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: large;
+  padding: 10px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color:lightgray;
+}
+.navlink{
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+.carbon {
+  height:550px;
+  margin:0%;
+  padding-left: 10rem;
+}
+.content {
+  display: grid;
+  grid-template-columns: auto auto;
+  font-family: 'Lora', serif;
+}
+h1 {
+  padding-top: 5rem;
+  font-size: 25;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+p {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: medium;
+}
+.calc {
+  background-image:url("title section image.png") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 38rem;
+  width: 100%;
+  margin: 0%;
+}
+h2 {
+  margin: 0%;
+  font-family: 'Lora', serif;
+  font-size: 3rem;
+  padding: 2rem;
+  text-align: center;
+  text-decoration:double;
+  background-color:slategray;
+}
+.calc head {
+  display: grid; 
+  grid-template-columns: auto auto;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 0%;
+
+}
+.container {
+  padding:3rem;
+  display: inline;
+  align-items: center;
+}
+.image {
+  width: 100%;
+  height:50%
+}
+.div_button{
+  text-align: center;
+  padding: 3rem;
+}
+.btn {
+  background-color:lightslategray;
+  width: 10rem;
+  align-items: center;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  height: 2.5rem;
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+.calculator{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 0%;
+  padding-top:3rem;
+  padding-bottom:3rem ;
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0%;
+  padding-left: 10%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+.dropdownmenu{
+  height:35px;
+  border-radius: 5px;
+}
+label {
+  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+}
+label{
+  font-size: 1rem;
+}
+textarea {
+  height: 150px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: lightblue;
+  color: #4CAF50;
+}
+
+.form_div{
+  text-align: left;
+}
+.contact {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.intro{
+  text-align: center;
+}
+.info{
+  padding: 1rem;
+}
+h3 {
+padding: 10px;
+}
+.button1{
+width: 100%;
+padding-left: 10px;
+padding-right: 10px;
+}
+.label{
+background-color:lightgray;
+}
+.graph{
+padding: 3rem;
+align-items: center;
+display: block;
+}
+.div{
+display: grid;
+grid-template-columns: auto auto;
+}
+.topnav{
+padding: 5rem;
+}
