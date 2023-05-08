@@ -79,7 +79,7 @@
                         var gas = document.getElementById("gas").value;
                         var flight = document.getElementById("flight").value;
                         var HouseholdCarbonFootprint = (electricity * 0.82*12 + gas * 1.5*12 + flight * 0.22);
-                      drawGraph(HouseholdCarbonFootprint, 0, 0);
+                        drawGraph(HouseholdCarbonFootprint, 0, 0);
                         document.getElementById("HouseholdCarbonFootprint").innerHTML =  HouseholdCarbonFootprint.toFixed(2) + " kgs of CO2";
                         return HouseholdCarbonFootprint;
                     }
@@ -131,7 +131,7 @@
                         factor = .27;
                       } else if (fuelType == "petrol") {
                         factor = .23;}
-                         else if (fuelType == "gasoline") {
+                        else if (fuelType == "gasoline") {
                         factor = .23;
                       }
                       var TransportCarbonFootprint= amount*factor*365*people;
@@ -378,7 +378,7 @@
                         document.getElementById("finalResult").innerHTML= "Total carbon emission in this area per year is: "+totalCarbonEmission+" MT CO2";
                       }
                         </script>
-                 </div>
+                </div>
               
                   </div>
                 </div>
@@ -414,5 +414,5 @@
                 </div>
             </div>
         </section>
-    </body>
+  </body>
 </html>
